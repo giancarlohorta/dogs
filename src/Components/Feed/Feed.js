@@ -9,10 +9,10 @@ const Feed = ({ user }) => {
 
   React.useEffect(() => {
     let wait = false;
-    function infiniteScroll(event) {
-      if (infinite === true) {
+    function infiniteScroll() {
+      if (infinite) {
         const scroll = window.scrollY;
-        const height = document.body.offsetHeight - window.scrollY;
+        const height = document.body.offsetHeight - window.innerHeight;
         if (scroll > height * 0.75 && !wait) {
           setPages((pages) => [...pages, pages.length + 1]);
           wait = true;
@@ -22,6 +22,7 @@ const Feed = ({ user }) => {
         }
       }
     }
+
     window.addEventListener("wheel", infiniteScroll);
     window.addEventListener("scroll", infiniteScroll);
     return () => {
