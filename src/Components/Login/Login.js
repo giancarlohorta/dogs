@@ -15,9 +15,9 @@ const Login = () => {
   if (login === true) return <Navigate to="/conta" />;
   return (
     <section className={styles.login}>
+      <Head title="Login" descriptio="Home do site" />
       <div className={styles.forms}>
         <Routes>
-          <Head title="Login" descriptio="Home do site" />
           <Route path="/" element={<LoginForm />} />
           <Route path="create" element={<LoginCreate />} />
           <Route path="lost" element={<LoginPasswordLost />} />
